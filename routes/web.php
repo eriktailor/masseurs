@@ -1,12 +1,9 @@
 <?php
 
-use DB;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IndexController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/masseur-details', function () {
-    $masseurs = DB::table('masseurs')->get();
-    dd($masseurs);
-});
+
+
+Route::get('/', [IndexController::class, 'indexHomepage']);
+
