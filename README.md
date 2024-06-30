@@ -18,3 +18,8 @@ To build the production sass & js files, run:
 ```
 npm run prod
 ```
+
+## Going Live
+
+- Create the masseur_details table in booking database
+- Make it get images from the booking project's images folder

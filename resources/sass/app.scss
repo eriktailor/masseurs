@@ -1,6 +1,10 @@
-// Import Bootstrap's variables
+// Color variables (Override before importing components)
+$primary:   #A41404;
+$secondary: #FDD302;
+$dark:      #1d0403;
+$light:     #FEECDA; 
+$danger:    #FF0000; 
+$text:      #6D504B; 
+
+// Import Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
-// Your custom variables (optional)
-// $primary: #ff0000;
-
