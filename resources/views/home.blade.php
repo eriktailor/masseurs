@@ -12,13 +12,26 @@
 </nav>
 
 <main>
-@foreach($masseurs as $masseur)
-    <div>
-        <h2>{{ $masseur->name }}</h2>
-        <p>Id: {{ $masseur->id }}</p>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xl-5 g-4">
+            @foreach($masseurs as $masseur)
+                <div class="col">
+                    @php
+                        $imageExtension = getImageExtension('profile_images', $masseur->id);
+                    @endphp
+                    <div class="card text-center overflow-hidden">
+                        @if($imageExtension)
+                            <img class="object-fit-cover rounded-circle mx-auto my-4" src="{{ asset('profile_images/' . $masseur->id . '.' . $imageExtension) }}" alt="{{ $masseur->name }}" width="100" height="100">
+                        @else
+                            <p>Image not found</p>
+                        @endif
+                        <h2>{{ $masseur->name }}</h2>
+                        <p>Id: {{ $masseur->id }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
-@endforeach
-
 </main>
 
 
