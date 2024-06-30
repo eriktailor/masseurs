@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('mother_name')->nullable();
             $table->string('birth_date')->nullable();
             $table->string('birth_place')->nullable();
+            $table->string('visa_number')->nullable();
+            $table->date('visa_expire')->nullable();
+            $table->string('passport_number')->nullable();
+            $table->date('passport_expire')->nullable();
+            $table->text('notes')->nullable();
             $table->timestamps();
 
             $table->foreign('masseur_id')->references('id')->on('masseurs')->onDelete('cascade');

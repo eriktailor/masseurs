@@ -16,4 +16,12 @@ class Masseur extends Model
     {
         return $this->hasOne(MasseurDetails::class);
     }
+
+    /**
+     * Make relation with Salon model
+     */
+    public function salon()
+    {
+        return $this->belongsTo(Salon::class);
+    }
 }

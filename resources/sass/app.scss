@@ -2,9 +2,20 @@
 $primary:   #A41404;
 $secondary: #FDD302;
 $dark:      #1d0403;
-$light:     #FEECDA; 
-$danger:    #FF0000; 
+$light:     #F4EDE0; 
+$danger:    #f07979; 
+$success:   #50cc93;
 $text:      #6D504B; 
+$white:     #FFFFFF;
+
+// Body
+$body-bg: #FEECDA;
+
+// Typography
+$font-family-base: 'Roboto', sans-serif;
+
+// Cards
+$card-bg: $white;
 
 // Import Bootstrap
 @import '~bootstrap/scss/bootstrap';
