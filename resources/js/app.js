@@ -1,9 +1,19 @@
+import 'bootstrap';
+import $ from 'jquery';
 
-/**
- * Initialize tooltips
- */
-$('body').tooltip({
-    selector: '[data-bs-toggle="tooltip"]',
-    trigger: 'hover',
-    html: true
+// Ensure jQuery is available globally
+window.$ = window.jQuery = $;
+
+$(document).ready(function() {
+    console.log('jQuery is ready to use!');
+    
+    // Your jQuery code here
+    
+    /**
+     * Initialize tooltips
+     */
+    $('[data-bs-toggle="tooltip"]').tooltip({
+        trigger: 'hover',
+        html: true
+    });
 });

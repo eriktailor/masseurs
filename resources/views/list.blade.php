@@ -12,7 +12,7 @@
                     @endphp
                     <div class="card position-relative text-center overflow-hidden rounded-4 h-100 p-4">
                         <button class="btn text-secondary position-absolute end-0 top-0 m-1 opacity-75" type="button" data-bs-toggle="modal" data-bs-target="#masseurModal">
-                            <div data-bs-toggle="tooltip" title="lala">
+                            <div data-bs-toggle="tooltip" title="Szerkesztés">
                                 <x-icon name="edit"/>
                             </div>
                         </button>
