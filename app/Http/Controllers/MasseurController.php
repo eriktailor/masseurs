@@ -13,8 +13,10 @@ class MasseurController extends Controller
      */
     public function getMasseurDetails($id)
     {
-        $masseur = Masseur::find($id);
-    
+        $masseur = Masseur::with('details')->find($id);
+        
         return response()->json($masseur);
     }
+
+
 }

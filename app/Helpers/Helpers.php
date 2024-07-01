@@ -18,3 +18,14 @@ if (!function_exists('getImageExtension')) {
         return null;
     }
 }
+
+/**
+ * Limit characters of a string
+ * e.g: a paragraph will display only 10 characters
+ */
+if (!function_exists('limitChars')) {
+    function limitChars($content, $chars)
+    {
+        return Str::limit($content, $chars);
+    }
+}
