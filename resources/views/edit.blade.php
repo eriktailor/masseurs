@@ -9,14 +9,22 @@
             </div>
             <div class="modal-body">
                 <p class="small opacity-75 mb-4">Itt tudod megnézni és / vagy szerkeszteni a masszőr adatait. A változtatás csak alul a 'Mentés' gombra kattintva érvényesül. </p>
-                <div class="form-group">
+                <div class="mb-3">
                     <label class="form-label" for="masseurMotherName">Anyja neve</label>
                     <input class="form-control" id="masseurMotherName" type="text">
                 </div>
+                <div class="mb-3">
+                    <label class="form-label" for="masseurBirthDate">Születési ideje</label>
+                    <input class="form-control datepicker" id="masseurBirthDate" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="masseurBirthPlace">Születési helye</label>
+                    <input class="form-control" id="masseurBirthPlace" type="text">
+                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="modal-footer pt-0">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Mégsem</button>
+                <button class="btn btn-primary" type="button">Mentés</button>
             </div>
         </div>
     </div>
