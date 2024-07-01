@@ -31,6 +31,10 @@
         </div>
     </nav>
 
+    @if (session('success'))
+        <div>{{ session('success') }}</div>
+    @endif
+
     @yield('content')
 
     @include('edit')

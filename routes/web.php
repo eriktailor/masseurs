@@ -8,4 +8,7 @@ use App\Http\Controllers\MasseurController;
 
 Route::get('/', [IndexController::class, 'indexListing']);
 
-Route::get('/masseurs/fetch/{id}', [MasseurController::class, 'getMasseurDetails']);
+Route::controller(MasseurController::class)->group(function() {
+    Route::get('/masseurs/fetch/{id}', 'getMasseurDetails');
+    Route::post('/masseurs/store', 'storeMasseurDetails')->name('masseur.store');
+});

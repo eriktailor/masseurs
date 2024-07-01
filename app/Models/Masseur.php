@@ -9,6 +9,8 @@ class Masseur extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+    
     /**
      * Make relation with MasseurDetails model
      */

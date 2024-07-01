@@ -22,7 +22,8 @@ npm run prod
 ## Going Live
 
 - Create the masseur_details table in booking database
-- Make it get images from the booking project's images folder
+- Make it get images from the booking project's images folder?
 - Add two new salons to booking site and a checkbox to show the salon in calendar or not
 - Add a link to each masseur in the booking site, what redirects to the masseurs site, with correct search params
 - Make it get masseur profile images from masseur_details table's corresponding column
+- Make it rewrite the masseur table's base details on save

@@ -11,6 +11,15 @@ $(document).ready(function () {
   // START Dom Ready -------------------------------------------------------------------------
 
   /**
+   * Initialize ajax
+   */
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  /**
    * Initialize tooltips
    */
   $('[data-bs-toggle="tooltip"]').tooltip({
@@ -28,6 +37,7 @@ $(document).ready(function () {
       method: 'GET',
       success: function success(res) {
         console.log(res);
+        $('#masseurName').val(res.name);
         $('#masseurShortName').text(res.name);
       },
       error: function error(jqXHR, textStatus, errorThrown) {
@@ -35,6 +45,10 @@ $(document).ready(function () {
       }
     });
   });
+
+  /**
+   * Set up jquery ui datepicker localization
+   */
   $.datepicker.regional['hu'] = {
     closeText: 'Bezár',
     // set a close button text
@@ -59,6 +73,14 @@ $(document).ready(function () {
    */
   $(".datepicker").datepicker({
     firstDay: 1
+  });
+
+  /**
+   * Submit the store masseur form
+   */
+  $('#storeMasseurButton').on('click', function (event) {
+    event.preventDefault();
+    $('#storeMasseurForm').submit();
   });
 
   // END Dom Ready ---------------------------------------------------------------------------
