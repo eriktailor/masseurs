@@ -3028,9 +3028,7 @@ __webpack_require__.r(__webpack_exports__);
 // Ensure jQuery is available globally
 window.$ = window.jQuery = (jquery__WEBPACK_IMPORTED_MODULE_1___default());
 jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
-  console.log('jQuery is ready to use!');
-
-  // Your jQuery code here
+  // START Dom Ready -------------------------------------------------------------------------
 
   /**
    * Initialize tooltips
@@ -3039,6 +3037,26 @@ jquery__WEBPACK_IMPORTED_MODULE_1___default()(document).ready(function () {
     trigger: 'hover',
     html: true
   });
+
+  /**
+   * Edit or view a masseur
+   */
+  jquery__WEBPACK_IMPORTED_MODULE_1___default()('.edit-masseur').on('click', function () {
+    var masseurId = jquery__WEBPACK_IMPORTED_MODULE_1___default()(this).data('masseur-id');
+    jquery__WEBPACK_IMPORTED_MODULE_1___default().ajax({
+      url: '/masseurs/fetch/' + masseurId,
+      method: 'GET',
+      success: function success(res) {
+        console.log(res);
+        jquery__WEBPACK_IMPORTED_MODULE_1___default()('#masseurShortName').text(res.name);
+      },
+      error: function error(jqXHR, textStatus, errorThrown) {
+        console.error('AJAX call failed: ', textStatus, errorThrown);
+      }
+    });
+  });
+
+  // END Dom Ready ---------------------------------------------------------------------------
 });
 
 /***/ }),

@@ -11,7 +11,8 @@ class IndexController extends Controller
     /**
      * Display the masseurs homepage
      */
-    public function indexListing() {
+    public function indexListing() 
+    {
         $masseurs = Masseur::with(['details', 'salon'])->get();
         $salons = Salon::all();
         

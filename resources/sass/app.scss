@@ -18,5 +18,11 @@ $font-family-base: 'Roboto', sans-serif;
 // Cards
 $card-bg: $white;
 
+// Modals
+$modal-inner-padding: 24px;
+$modal-content-bg: $white;
+$modal-content-border-width: 0;
+$modal-header-border-width: 0;
+
 // Import Bootstrap
 @import '~bootstrap/scss/bootstrap';
