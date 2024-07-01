@@ -5,5 +5,5 @@ use App\Http\Controllers\IndexController;
 
 
 
-Route::get('/', [IndexController::class, 'indexHomepage']);
+Route::get('/', [IndexController::class, 'indexListing']);
 

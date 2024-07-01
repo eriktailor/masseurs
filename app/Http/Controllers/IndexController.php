@@ -11,7 +11,7 @@ class IndexController extends Controller
     /**
      * Display the masseurs homepage
      */
-    public function indexHomepage() {
+    public function indexListing() {
         $masseurs = Masseur::with(['details', 'salon'])->get();
         $salons = Salon::all();
         
@@ -20,7 +20,7 @@ class IndexController extends Controller
             'salons' => $salons
         ];
 
-        return view('home', $data);
+        return view('list', $data);
     }
 
 
