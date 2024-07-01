@@ -32,7 +32,7 @@
     </nav>
 
     @if (session('success'))
-        <div>{{ session('success') }}</div>
+        <div class="alert alert-success text-center mb-0">{{ session('success') }}</div>
     @endif
 
     @yield('content')
