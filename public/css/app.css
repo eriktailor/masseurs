@@ -1,6 +1,20 @@
 @charset "UTF-8";
-.form-control.datepicker {
-  padding: 10px 16px;
+.ui-datepicker {
+  border-radius: 14px;
+  border: 0 !important;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ui-datepicker-header {
+  background: transparent;
+  border: 0;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+  text-align: center;
+  background: transparent !important;
+  border: 0 !important;
+  padding: 7px;
 }
 
 /*!
