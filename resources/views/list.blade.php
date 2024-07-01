@@ -10,7 +10,12 @@
                     @php
                         $imageExtension = getImageExtension('profile_images', $masseur->id);
                     @endphp
-                    <div class="card text-center overflow-hidden rounded-4 h-100 p-4">
+                    <div class="card position-relative text-center overflow-hidden rounded-4 h-100 p-4">
+                        <button class="btn text-secondary position-absolute end-0 top-0 m-1 opacity-75" type="button" data-bs-toggle="modal" data-bs-target="#masseurModal">
+                            <div data-bs-toggle="tooltip" title="lala">
+                                <x-icon name="edit"/>
+                            </div>
+                        </button>
                         <div class="py-2">
                             @if($imageExtension)
                                 <img class="object-fit-cover rounded-circle mx-auto mb-4" src="{{ asset('profile_images/' . $masseur->id . '.' . $imageExtension) }}" alt="{{ $masseur->name }}" width="100" height="100">
