@@ -25,7 +25,7 @@
                             <h3 class="h4">{{ $masseur->name }}</h3>
                             <p class="small opacity-75">{{ limitChars($masseur->full_name, 17) }}</p>
                             <div class="flex justify-content-center align-items-center">
-                                <span class="badge bg-secondary bg-opacity-25 opacity-75 text-dark me-1">
+                                <span class="badge bg-secondary text-dark me-1">
                                     {{ $masseur->salon->short_name }}
                                 </span>
                                 @if($masseur->deleted)

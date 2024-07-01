@@ -44,11 +44,11 @@ $(document).ready(function () {
     // set month names
     monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sze', 'Okt', 'Nov', 'Dec'],
     // set short month names
-    dayNames: ['Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombar', 'Vasárnap'],
+    dayNames: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
     // set days names
-    dayNamesShort: ['H', 'K', 'Sz', 'Cs', 'P', 'Sz', 'V'],
+    dayNamesShort: ['V', 'H', 'K', 'Sz', 'Cs', 'P', 'Sz'],
     // set short day names
-    dayNamesMin: ['H', 'K', 'Sz', 'Cs', 'P', 'Sz', 'V'],
+    dayNamesMin: ['V', 'H', 'K', 'Sz', 'Cs', 'P', 'Sz'],
     // set more short days names
     dateFormat: 'yyyy-mm-dd' // set format date
   };
@@ -57,7 +57,9 @@ $(document).ready(function () {
   /**
    * Initialize jquery ui datepicker
    */
-  $(".datepicker").datepicker();
+  $(".datepicker").datepicker({
+    firstDay: 1
+  });
 
   // END Dom Ready ---------------------------------------------------------------------------
 });

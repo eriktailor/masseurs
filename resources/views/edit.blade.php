@@ -8,7 +8,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body py-0">
-                <p class="small opacity-75 mb-4">Itt tudod megnézni és / vagy szerkeszteni a masszőr adatait. A változtatás csak alul a 'Mentés' gombra kattintva érvényesül. </p>
+                <div class="d-flex align-items-center gap-4 mb-3">
+                    <div>
+                        <img class="rounded-circle overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">
+                        <input class="form-control" id="masseurProfileImageHidden" type="hidden">
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary">Profilkép feltöltése</button>
+                        <p class="small opacity-75 mt-3 mb-0">Az ide feltöltött profilkép fog megjelenni a foglalási rendszerben a lány neve mellett.</p>
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label class="form-label" for="masseurMotherName">Anyja neve</label>
                     <input class="form-control" id="masseurMotherName" type="text">
