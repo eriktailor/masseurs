@@ -39,10 +39,13 @@ $(document).on('change', '.form-select', function() {
 select_placeholder();
 
 /**
- * Edit or view a masseur
+ * Function to edit or view a masseur in modal
  */
-$('.edit-masseur').on('click', function() {
+ function openMasseurModal() {
     var masseurId = $(this).data('masseur-id');
+
+    $('#masseurForm').trigger('reset');
+    $('#masseurProfileImage').attr('src', '/img/noimage.png');
 
     $.ajax({
         url: '/masseurs/fetch/' + masseurId,
@@ -50,27 +53,31 @@ $('.edit-masseur').on('click', function() {
         success: function(res) {
             console.log(res);
 
-            if (res.details.avatar !== null) {
-                $('#masseurProfileImage').attr('src', res.details.avatar);
-                $('#masseurProfileImageHidden').val(res.details.avatar);
+            if (res.details) {
+                if (res.details.avatar !== null) {
+                    $('#masseurProfileImage').attr('src', res.details.avatar);
+                    $('#masseurProfileImageHidden').val(res.details.avatar);
+                } else {
+                    $('#masseurProfileImage').attr('src', '/img/noimage.png');
+                }
+
+                $('#masseurShortName').text(res.name);
+                $('#masseurName').val(res.name);
+                $('#masseurFullName').val(res.full_name);
+
+                $('#masseurMotherName').val(res.details.mother_name);
+                $('#masseurBirthDate').val(res.details.birth_date);
+                $('#masseurBirthPlace').val(res.details.birth_place);
+                $('#masseurVisaNumber').val(res.details.visa_number);
+                $('#masseurVisaExpire').val(res.details.visa_expire);
+                $('#masseurPassportNumber').val(res.details.passport_number);
+                $('#masseurPassportExpire').val(res.details.passport_expire);
+
+                $('#masseurIntroduction').val(res.introduction);
+                $('#masseurOtherNotes').val(res.details.notes);
             } else {
-                $('#masseurProfileImage').attr('src', '/img/noimage.png');
+                console.error('Error: res.details is null or undefined');
             }
-
-            $('#masseurShortName').text(res.name);
-            $('#masseurName').val(res.name);
-            $('#masseurFullName').val(res.full_name);
-
-            $('#masseurMotherName').val(res.details.mother_name);
-            $('#masseurBirthDate').val(res.details.birth_date);
-            $('#masseurBirthPlace').val(res.details.birth_place);
-            $('#masseurVisaNumber').val(res.details.visa_number);
-            $('#masseurVisaExpire').val(res.details.visa_expire);
-            $('#masseurPassportNumber').val(res.details.passport_number);
-            $('#masseurPassportExpire').val(res.details.passport_expire);
-
-            $('#masseurIntroduction').val(res.introduction);
-            $('#masseurOtherNotes').val(res.details.notes);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('AJAX call failed: ', textStatus, errorThrown);
@@ -83,18 +90,13 @@ $('.edit-masseur').on('click', function() {
  */
 $('#storeMasseurButton').on('click', function(event) {
     event.preventDefault();
-    $('#storeMasseurForm').submit();
+    $('#masseurForm').submit();
 });
-
-/**
- * Run masonry on masseurs listing on page load
- */
-$('#masseursList').masonry({ 'percentPosition': true });
 
 /**
  * Function to sort masseurs listing dynamically
  */
-function fetchMasseurs() {
+function sortMasseurs() {
     var sortBy = $('#sortBySelect').val();
     var salonId = $('#salonSelect').val();
     var status = $('#statusSelect').val();
@@ -119,30 +121,38 @@ function fetchMasseurs() {
 /**
  * Function to format date fields dynamically
  */
-function formatDateField() {
+function formatDateField(e) {
     var value = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
-    if (value.length > 8) {
-        value = value.slice(0, 8); // Limit input to 8 digits
+    var formattedValue = '';
+
+    if (value.length <= 4) {
+        formattedValue = value;
+    } else if (value.length <= 6) {
+        formattedValue = value.slice(0, 4) + '-' + value.slice(4);
+    } else {
+        formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6);
     }
-    var formattedValue = value;
-    if (value.length >= 5) {
-        formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6, 8);
-    } else if (value.length >= 3) {
-        formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6);
-    } else if (value.length >= 1) {
-        formattedValue = value.slice(0, 4);
-    }
+
     e.target.value = formattedValue;
 }
 
 /**
+ * Run masonry on masseurs listing on page load
+ */
+$('#masseursList').masonry({ 'percentPosition': true });
+
+/**
  * Run masseurs sort function if filters change
  */
-$('#sortBySelect').on('change', fetchMasseurs);
-$('#salonSelect').on('change', fetchMasseurs);
-$('#statusSelect').on('change', fetchMasseurs);
-$('#searchField').on('keyup', fetchMasseurs);
+$('#sortBySelect').on('change', sortMasseurs);
+$('#salonSelect').on('change', sortMasseurs);
+$('#statusSelect').on('change', sortMasseurs);
+$('#searchField').on('keyup', sortMasseurs);
 
+/**
+ * Run edit or just view masseur modal
+ */
+$('.edit-masseur').on('click', openMasseurModal);
 /**
  * Run date input formatter when user types in
  */

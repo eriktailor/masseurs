@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body py-0">
-                <form id="storeMasseurForm" action="{{ route('masseur.store') }}" method="POST">
+                <form id="masseurForm" action="{{ route('masseur.store') }}" method="POST">
                     @csrf
                     <input id="masseurName" name="name" type="hidden" required>
                     <div class="d-flex align-items-center gap-4 mb-4">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="masseurVisaExpire">Visa lejárata</label>
-                        <input class="form-control date-input" id="masseurVisaExpire" name="visa_expire" type="text">
+                        <input class="form-control date-input" id="masseurVisaExpire" name="visa_expire" type="text" placeholder="ÉÉÉÉ-HH-NN">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="masseurPassportNumber">Útlevél száma</label>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="masseurPassportExpire">Útlevél lejárata</label>
-                        <input class="form-control date-input" id="masseurPassportExpire" name="passport_expire" type="text">
+                        <input class="form-control date-input" id="masseurPassportExpire" name="passport_expire" type="text" placeholder="ÉÉÉÉ-HH-NN">
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="masseurIntroduction">
