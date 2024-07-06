@@ -61,27 +61,7 @@ $('.date-input').on('input', formatDateField);
 /**
  * Run profile image uploader feature on avatar click
  */
-// When the hover div is clicked
-$('#masseurProfileImageHover').on('click', function(event) {
-    event.stopPropagation(); // Prevent any event propagation issues
-    $('#masseurProfileImageHidden').trigger('click');
-});
-
-// When a file is selected
-$('#masseurProfileImageHidden').on('change', function(event) {
-    var input = event.target;
-
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            $('#masseurProfileImage').attr('src', e.target.result);
-        }
-        reader.readAsDataURL(input.files[0]);
-    }
-});
-
-
-
+masseurAvatarUpload('#masseurProfileImageHover', '#masseurProfileImageHidden', '#masseurProfileImage');
 
 // END Dom Ready ---------------------------------------------------------------------------
 
@@ -219,7 +199,25 @@ function formatDateField(e) {
 /**
  * Function to open file browser at avatar click
  */
-function masseurAvatarUpload() {
+function masseurAvatarUpload(hoverDivId, fileInputId, imageId) {
 
-    
+    // When the hover div is clicked
+    $(hoverDivId).on('click', function(event) {
+        event.stopPropagation(); // Prevent any event propagation issues
+        $(fileInputId).trigger('click');
+    });
+
+    // When a file is selected
+    $(fileInputId).on('change', function(event) {
+        var input = event.target;
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $(imageId).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
 }
+    
