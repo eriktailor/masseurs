@@ -33,7 +33,7 @@ function select_placeholder() {
 
 	});
 }
-$(document).on('change', '.form-select', function(){
+$(document).on('change', '.form-select', function() {
 	select_placeholder();
 });
 select_placeholder();
@@ -48,9 +48,9 @@ $('.edit-masseur').on('click', function() {
         url: '/masseurs/fetch/' + masseurId,
         method: 'GET',
         success: function(res) {
-            console.log(res)
-            $('#masseurName').val(res.name);
+            console.log(res);
             $('#masseurShortName').text(res.name);
+            $('#masseurName').val(res.name);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('AJAX call failed: ', textStatus, errorThrown);
@@ -76,7 +76,7 @@ $.datepicker.setDefaults($.datepicker.regional['hu']);
 /**
  * Initialize jquery ui datepicker
  */
-$(".datepicker").datepicker({
+$('.datepicker').datepicker({
     firstDay: 1
 });
 
@@ -88,6 +88,9 @@ $('#storeMasseurButton').on('click', function(event) {
     $('#storeMasseurForm').submit();
 });
 
+/**
+ * Run masonry on masseurs listing on page load
+ */
 $('#masseursList').masonry({ 'percentPosition': true });
 
 /**
@@ -117,7 +120,7 @@ function fetchMasseurs() {
 
 
 /**
- * Run masseurs sort function if select input changes
+ * Run masseurs sort function if filters change
  */
 $('#sortBySelect').on('change', fetchMasseurs);
 $('#salonSelect').on('change', fetchMasseurs);

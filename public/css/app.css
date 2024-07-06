@@ -8,6 +8,14 @@ input::placeholder, .select-placeholder {
   font-weight: 400 !important;
 }
 
+.edit-masseur {
+  transition: all 0.2s ease-in-out;
+}
+.edit-masseur:hover {
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
 .ui-datepicker {
   border-radius: 14px;
   border: 0 !important;

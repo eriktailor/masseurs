@@ -55,8 +55,8 @@ $(document).ready(function () {
       method: 'GET',
       success: function success(res) {
         console.log(res);
-        $('#masseurName').val(res.name);
         $('#masseurShortName').text(res.name);
+        $('#masseurName').val(res.name);
       },
       error: function error(jqXHR, textStatus, errorThrown) {
         console.error('AJAX call failed: ', textStatus, errorThrown);
@@ -89,7 +89,7 @@ $(document).ready(function () {
   /**
    * Initialize jquery ui datepicker
    */
-  $(".datepicker").datepicker({
+  $('.datepicker').datepicker({
     firstDay: 1
   });
 
@@ -100,6 +100,10 @@ $(document).ready(function () {
     event.preventDefault();
     $('#storeMasseurForm').submit();
   });
+
+  /**
+   * Run masonry on masseurs listing on page load
+   */
   $('#masseursList').masonry({
     'percentPosition': true
   });
@@ -131,7 +135,7 @@ $(document).ready(function () {
   }
 
   /**
-   * Run masseurs sort function if select input changes
+   * Run masseurs sort function if filters change
    */
   $('#sortBySelect').on('change', fetchMasseurs);
   $('#salonSelect').on('change', fetchMasseurs);

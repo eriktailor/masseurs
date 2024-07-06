@@ -1,11 +1,13 @@
 <div class="modal fade" id="masseurModal" tabindex="-1" aria-labelledby="masseurModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header d-flex align-items-center justify-content-between">
                 <h1 class="modal-title fs-5" id="masseurModalLabel">
-                    <span id="masseurShortName"></span> szerkesztése
+                    <span id="masseurShortName">Masszőr</span> szerkesztése
                 </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button class="btn p-0" type="button" data-bs-dismiss="modal" aria-label="Bezár">
+                    <x-icon name="x" width="24" height="24" class="opacity-50" strokeWidth="1.5"/>
+                </button>
             </div>
             <div class="modal-body py-0">
                 <form id="storeMasseurForm" action="{{ route('masseur.store') }}" method="POST">
@@ -13,18 +15,18 @@
                     <input id="masseurName" name="name" type="hidden" required>
                     <div class="d-flex align-items-center gap-4 mb-4">
                         <div>
+                            <label class="form-label" for="masseurProfileImage">Profilkép</label>
+                            <p class="small opacity-75 text-muted mb-0 me-4">Az ide feltöltött profilkép fog megjelenni a foglalási rendszerben a lány neve mellett. Kattints a képre egy új kép feltöltéshez!</p>
+                        </div>
+                        <div>
                             <img class="rounded-circle overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">
                             <input class="form-control" id="masseurProfileImageHidden" name="avatar" type="hidden">
                         </div>
-                        <div>
-                            <button class="btn btn-secondary">Profilkép feltöltése</button>
-                            <p class="small opacity-75 mt-3 mb-0">Az ide feltöltött profilkép fog megjelenni a foglalási rendszerben a lány neve mellett.</p>
-                        </div>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label" for="masseurFullName">Teljes név</label>
-                        <input class="form-control" id="masseurFullName" name="masseur_full_name" type="text">
-                    </div> -->
+                    <div class="mb-3">
+                        <label class="form-label" for="masseurFullName">Teljes neve</label>
+                        <input class="form-control" id="masseurFullName" name="full_name" type="text">
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="masseurMotherName">Anyja neve</label>
                         <input class="form-control" id="masseurMotherName" name="mother_name" type="text">
@@ -56,19 +58,15 @@
                     <div class="mb-3">
                         <label class="form-label" for="masseurIntroduction">
                             Bemutatkozás
-                            <span data-bs-toggle="tooltip" title="Ez a honlapon fog megjelenni">
-                                <x-icon class="opacity-50" name="info-circle" width="20" height="20" strokeWidth="2"/>
-                            </span>
                         </label>
+                        <p class="small opacity-75 text-muted">Ez az a leírás, ami a honlapon a masszőr neve alatt szerepel. Ha ezt megváltoztatod, nem változik meg automatikusan a honlapon.</p>
                         <textarea class="form-control" id="masseurIntroduction" name="introduction" rows="6"></textarea>
                     </div>
                     <div>
                         <label class="form-label" for="masseurOtherNotes">
                             Egyéb infó, megjegyzés
-                            <span data-bs-toggle="tooltip" title="Ez sehol nem jelenik majd meg, bárki írhat ide bármit">
-                                <x-icon class="opacity-50" name="info-circle" width="20" height="20" strokeWidth="2"/>
-                            </span>
                         </label>
+                        <p class="small opacity-75 text-muted">Ez sehol nem jelenik majd meg ezen a felületen kívül, ide bárki írhat ide bármi infót a lányról.</p>
                         <textarea class="form-control" id="masseurOtherNotes" name="notes" rows="6"></textarea>
                     </div>
                 </form>
