@@ -6,7 +6,7 @@
         @endphp
         <a class="edit-masseur card position-relative text-center overflow-hidden rounded-4 h-100 text-decoration-none p-4" type="button" data-bs-toggle="modal" data-bs-target="#masseurModal" data-masseur-id="{{ $masseur->id }}">
             <div class="py-2">
-                
+
                 @if($masseur->details)
                     <div class="d-flex position-absolute start-0 top-0 gap-2 m-3">
                         @if($masseur->details->visa_expire >= $currentDate && $currentDate >= getDateBeforeExpire($masseur->details->visa_expire))
@@ -23,7 +23,7 @@
                 @endif
 
                 <h3 class="h4">{{ $masseur->name }}</h3>
-                <p class="small opacity-75">{{ limitChars($masseur->full_name, 17) }}</p>
+                <p class="small opacity-75">{{ $masseur->full_name }}</p>
                 <div class="flex justify-content-center align-items-center">
                     <span class="badge bg-secondary text-dark me-1">
                         {{ $masseur->salon->short_name }}
