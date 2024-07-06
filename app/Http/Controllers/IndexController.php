@@ -13,7 +13,7 @@ class IndexController extends Controller
      */
     public function indexListing() 
     {
-        $masseurs = Masseur::with(['details', 'salon'])->get();
+        $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
         $salons = Salon::all();
         
         $data = [
