@@ -2,12 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Salon;
 use App\Models\Masseur;
 use App\Models\MasseurDetails;
 use Illuminate\Http\Request;
 
 class MasseurController extends Controller
 {
+    /**
+     * Display the masseurs homepage
+     */
+    public function indexListing() 
+    {
+        $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
+        $salons = Salon::all();
+        
+        $data = [
+            'masseurs' => $masseurs,
+            'salons' => $salons
+        ];
+
+        return view('index', $data);
+    }
+    
     /**
      * Get a masseur details
      */
@@ -45,5 +62,31 @@ class MasseurController extends Controller
         return redirect()->back()->with('success', 'Masszőr sikeresen módosítva!');
     }
 
+    /**
+     * Order masseurs listing with select field
+     */
+    public function sortMasseurs($sortBy = '')
+    {
+        if (empty($sortBy)) {
+            // Default sorting logic, similar to indexListing
+            $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
+        } else {
+            if ($sortBy == 'full_name') {
+                $masseurs = Masseur::with(['details', 'salon'])
+                    ->orderByRaw("CASE WHEN full_name IS NULL THEN 1 ELSE 0 END, full_name ASC")
+                    ->get();
+            } else {
+                $masseurs = Masseur::with(['details', 'salon'])->orderBy($sortBy)->get();
+            }
+        }
 
+        $salons = Salon::all();
+        
+        $data = [
+            'masseurs' => $masseurs,
+            'salons' => $salons
+        ];
+
+        return view('list', $data);
+    }
 }

@@ -88,7 +88,23 @@ $('#storeMasseurButton').on('click', function(event) {
     $('#storeMasseurForm').submit();
 });
 
+$('#masseursList').masonry({ 'percentPosition': true });
 
+/**
+ * Sort masseurs dynamically with order select field
+ */
+$('#sortBySelect').on('change', function() {
+    var sortBy = $(this).val();
+    
+    $.ajax({
+        url: '/masseurs/sort/' + sortBy,
+        type: 'GET',
+        success: function(data) {
+            $('#masseursList').html(data);
+            $('#masseursList').masonry('reloadItems').masonry({ 'percentPosition': true });
+        }
+    });
+});
 
 
 // END Dom Ready ---------------------------------------------------------------------------

@@ -43,10 +43,10 @@
                     </select>
                 </div>
                 <div class="col-12 col-lg-2">
-                    <select class="form-select" id="orderSelect">
+                    <select class="form-select" id="sortBySelect">
                         <option value="">Rendezés</option>
-                        <option value="short_name">Becenév szerint</option>
-                        <option value="short_name">Teljes név szerint</option>
+                        <option value="name">Becenév szerint</option>
+                        <option value="full_name">Teljes név szerint</option>
                     </select>
                 </div>
             </div>

@@ -8,21 +8,7 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    /**
-     * Display the masseurs homepage
-     */
-    public function indexListing() 
-    {
-        $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
-        $salons = Salon::all();
-        
-        $data = [
-            'masseurs' => $masseurs,
-            'salons' => $salons
-        ];
-
-        return view('list', $data);
-    }
+    
 
 
 

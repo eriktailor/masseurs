@@ -6,9 +6,10 @@ use App\Http\Controllers\MasseurController;
 
 
 
-Route::get('/', [IndexController::class, 'indexListing']);
 
 Route::controller(MasseurController::class)->group(function() {
+    Route::get('/', 'indexListing');
     Route::get('/masseurs/fetch/{id}', 'getMasseurDetails');
     Route::post('/masseurs/store', 'storeMasseurDetails')->name('masseur.store');
+    Route::get('/masseurs/sort/{sortBy?}', 'sortMasseurs');
 });
