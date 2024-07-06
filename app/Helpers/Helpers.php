@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 
 /**
@@ -27,5 +28,17 @@ if (!function_exists('limitChars')) {
     function limitChars($content, $chars)
     {
         return Str::limit($content, $chars);
+    }
+}
+
+/**
+ * Get a date of expire, minus 2 months,
+ * used for masseurs listing indicators
+ */
+if (!function_exists('getDateBeforeExpire')) {
+    function getDateBeforeExpire($expire_date)
+    {
+        $date = Carbon::parse($expire_date);
+        return $date->subMonths(2)->format('Y-m-d');
     }
 }

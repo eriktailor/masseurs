@@ -44,6 +44,9 @@ $input-padding-y: 10px;
 $input-padding-x: 16px;
 $input-font-weight: 400;
 
+// Tooltips
+$tooltip-color: map-get($theme-colors, 'white');
+
 // Custom files
 @import 'helpers';
 

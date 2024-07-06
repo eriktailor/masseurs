@@ -7,7 +7,7 @@ use App\Models\Masseur;
 use App\Models\MasseurDetails;
 use Illuminate\Http\Request;
 
-class MasseurController extends Controller
+class MasseurDetailsController extends Controller
 {
     /**
      * Display the masseurs homepage
