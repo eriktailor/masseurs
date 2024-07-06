@@ -10,7 +10,7 @@
             <div class="modal-body py-0">
                 <form id="storeMasseurForm" action="{{ route('masseur.store') }}" method="POST">
                     @csrf
-                    <input id="masseurName" name="name" type="text" required>
+                    <input id="masseurName" name="name" type="hidden" required>
                     <div class="d-flex align-items-center gap-4 mb-4">
                         <div>
                             <img class="rounded-circle overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">

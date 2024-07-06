@@ -24,15 +24,12 @@
     <nav class="navbar bg-dark">
         <div class="container-fluid">
             <img src="{{ asset('img/logos/logo_full.svg') }}" alt="Saeng Tian" width="144" height="32">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            <button class="btn btn-warning">Új masszőr</button>
         </div>
     </nav>
 
     @if (session('success'))
-        <div class="alert alert-success text-center mb-0">{{ session('success') }}</div>
+        <div class="alert alert-success text-center fw-medium mb-0">{{ session('success') }}</div>
     @endif
 
     @yield('content')
@@ -41,7 +38,9 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="{{ asset('js/app.js') }}"></script>
 
 </body>

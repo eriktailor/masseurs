@@ -1,7 +1,7 @@
 // Color variables (Override before importing components)
 $primary:   #A41404;
 $secondary: #E4E5E6;
-$yellow:    #FDD302;
+$warning:    #FDD302;
 $dark:      #1d0403;
 $light:     #F4EDE0; 
 $danger:    #f07979; 
@@ -17,6 +17,10 @@ $font-family-base: 'Roboto', sans-serif;
 
 // Cards
 $card-bg: $white;
+
+// Buttons
+$btn-white-space: nowrap;
+$btn-font-weight: 500;
 
 // Modals
 $modal-inner-padding: 30px;
