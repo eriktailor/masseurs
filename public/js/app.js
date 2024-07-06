@@ -81,35 +81,6 @@ $(document).ready(function () {
   });
 
   /**
-   * Set up jquery ui datepicker localization
-   */
-  $.datepicker.regional['hu'] = {
-    closeText: 'Bezár',
-    // set a close button text
-    currentText: 'Ma',
-    // set today text
-    monthNames: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
-    // set month names
-    monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún', 'Júl', 'Aug', 'Sze', 'Okt', 'Nov', 'Dec'],
-    // set short month names
-    dayNames: ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
-    // set days names
-    dayNamesShort: ['V', 'H', 'K', 'Sz', 'Cs', 'P', 'Sz'],
-    // set short day names
-    dayNamesMin: ['V', 'H', 'K', 'Sz', 'Cs', 'P', 'Sz'],
-    // set more short days names
-    dateFormat: 'yyyy-mm-dd' // set format date
-  };
-  $.datepicker.setDefaults($.datepicker.regional['hu']);
-
-  /**
-   * Initialize jquery ui datepicker
-   */
-  $('.datepicker').datepicker({
-    firstDay: 1
-  });
-
-  /**
    * Submit the store masseur form
    */
   $('#storeMasseurButton').on('click', function (event) {
@@ -151,12 +122,36 @@ $(document).ready(function () {
   }
 
   /**
+   * Function to format date fields dynamically
+   */
+  function formatDateField() {
+    var value = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+    if (value.length > 8) {
+      value = value.slice(0, 8); // Limit input to 8 digits
+    }
+    var formattedValue = value;
+    if (value.length >= 5) {
+      formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6, 8);
+    } else if (value.length >= 3) {
+      formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6);
+    } else if (value.length >= 1) {
+      formattedValue = value.slice(0, 4);
+    }
+    e.target.value = formattedValue;
+  }
+
+  /**
    * Run masseurs sort function if filters change
    */
   $('#sortBySelect').on('change', fetchMasseurs);
   $('#salonSelect').on('change', fetchMasseurs);
   $('#statusSelect').on('change', fetchMasseurs);
   $('#searchField').on('keyup', fetchMasseurs);
+
+  /**
+   * Run date input formatter when user types in
+   */
+  $('.date-input').on('input', formatDateField);
 
   // END Dom Ready ---------------------------------------------------------------------------
 });
