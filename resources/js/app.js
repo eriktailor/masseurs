@@ -50,18 +50,27 @@ $('.edit-masseur').on('click', function() {
         success: function(res) {
             console.log(res);
 
-            $('#masseurShortName').text(res.name);
-            $('#masseurName').val(res.name);
-            $('#masseurFullName').val(res.full_name);
-
-            
-
             if (res.details.avatar !== null) {
                 $('#masseurProfileImage').attr('src', res.details.avatar);
                 $('#masseurProfileImageHidden').val(res.details.avatar);
             } else {
                 $('#masseurProfileImage').attr('src', '/img/noimage.png');
             }
+            
+            $('#masseurShortName').text(res.name);
+            $('#masseurName').val(res.name);
+            $('#masseurFullName').val(res.full_name);
+
+            $('#masseurMotherName').val(res.details.mother_name);
+            $('#masseurBirthDate').val(res.details.birth_date);
+            $('#masseurBirthPlace').val(res.details.birth_place);
+            $('#masseurVisaNumber').val(res.details.visa_number);
+            $('#masseurVisaExpire').val(res.details.visa_expire);
+            $('#masseurPassportNumber').val(res.details.passport_number);
+            $('#masseurPassportExpire').val(res.details.passport_expire);
+
+            $('#masseurIntroduction').val(res.introduction);
+            $('#masseurOtherNotes').val(res.details.notes);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('AJAX call failed: ', textStatus, errorThrown);
