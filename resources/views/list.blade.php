@@ -1,4 +1,4 @@
-@foreach($masseurs as $masseur)
+@forelse($masseurs as $masseur)
     <div class="col">
         @php
             $imageExtension = getImageExtension('profile_images', $masseur->id);
@@ -23,4 +23,6 @@
             </div>
         </a>
     </div>
-@endforeach
+@empty
+    <h1 class="text-center w-100 mt-5">Nincs találat.</h1>
+@endforelse
