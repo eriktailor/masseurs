@@ -20,6 +20,11 @@ $('[data-bs-toggle="tooltip"]').tooltip({
 });
 
 /**
+ * Run hide loading div in modal after content loaded
+ */
+$('#masseurModal').on('show.bs.modal', hideLoadingDiv);
+
+/**
  * Run select input placeholder color change function
  */
 selectPlaceholderColor();
@@ -75,6 +80,18 @@ function selectPlaceholderColor() {
 }
 
 /**
+ * Function to hide loading divs after open modals
+ */
+function hideLoadingDiv() {
+    setTimeout(function() {
+        $('.loading-div').fadeOut(500);
+        setTimeout(function() {
+            $('.loading-div').addClass('invisible');
+        }, 400);
+    }, 1000);
+}
+
+/**
  * Function to edit or view a masseur in modal
  */
 function openMasseurModal() {
@@ -82,6 +99,7 @@ function openMasseurModal() {
 
     $('#masseurForm').trigger('reset');
     $('#masseurProfileImage').attr('src', '/img/noimage.png');
+    $('#loadingDiv').removeClass('invisible');
 
     $.ajax({
         url: '/masseurs/fetch/' + masseurId,

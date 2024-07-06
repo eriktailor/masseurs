@@ -1,23 +1,26 @@
-// Color variables (Override before importing components)
-$primary:   #A41404;
-$secondary: #E4E5E6;
-$warning:    #FDD302;
-$dark:      #1d0403;
-$light:     #F4EDE0; 
-$danger:    #f07979; 
-$success:   #50cc93;
-$text:      #6D504B; 
-$white:     #FFFFFF;
+// Theme colors
+$theme-colors: (
+    'primary': #A41404,
+    'secondary': #E4E5E6,
+    'success': #50cc93,
+    'danger': #f07979,
+    'warning': #FDD302,
+    'info': #6eadeb,
+    'light': #FEECDA,
+    'dark': #1d0403,
+    'orange': #F47521,
+    'white': #FFFFFF
+);
 
 // Body
-$body-bg: #FEECDA;
+$body-bg: map-get($theme-colors, 'light');
 $placeholder: #ADAAA9;
 
 // Typography
 $font-family-base: 'Roboto', sans-serif;
 
 // Cards
-$card-bg: $white;
+$card-bg: #FFFFFF;
 
 // Buttons
 $btn-white-space: nowrap;
@@ -25,13 +28,13 @@ $btn-font-weight: 500;
 
 // Modals
 $modal-inner-padding: 30px;
-$modal-content-bg: $white;
+$modal-content-bg: #FFFFFF;
 $modal-content-border-width: 0;
 $modal-header-border-width: 0;
 $modal-content-border-radius: 20px;
 
 // Labels
-$form-label-color: $dark;
+$form-label-color: map-get($theme-colors, 'dark');
 $form-label-margin-bottom: 5px;
 $form-label-font-weight: 500;
 

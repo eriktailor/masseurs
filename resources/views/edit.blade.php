@@ -9,7 +9,8 @@
                     <x-icon name="x" width="24" height="24" class="opacity-50" strokeWidth="1.5"/>
                 </button>
             </div>
-            <div class="modal-body py-0">
+            <div class="modal-body position-relative py-0">
+                <x-loading/>
                 <form id="masseurForm" action="{{ route('masseur.store') }}" method="POST">
                     @csrf
                     <input id="masseurName" name="name" type="hidden" required>
