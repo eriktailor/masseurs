@@ -105,13 +105,18 @@ $(document).ready(function () {
   });
 
   /**
-   * Sort masseurs dynamically with order select field
+   * Function to sort masseurs listing dynamically
    */
-  $('#sortBySelect').on('change', function () {
-    var sortBy = $(this).val();
+  function fetchMasseurs() {
+    var sortBy = $('#sortBySelect').val();
+    var salonId = $('#salonSelect').val();
     $.ajax({
-      url: '/masseurs/sort/' + sortBy,
+      url: '/masseurs/sort',
       type: 'GET',
+      data: {
+        sortBy: sortBy,
+        salonId: salonId
+      },
       success: function success(data) {
         $('#masseursList').html(data);
         $('#masseursList').masonry('reloadItems').masonry({
@@ -119,7 +124,13 @@ $(document).ready(function () {
         });
       }
     });
-  });
+  }
+
+  /**
+   * Run masseurs sort function if select input changes
+   */
+  $('#sortBySelect').on('change', fetchMasseurs);
+  $('#salonSelect').on('change', fetchMasseurs);
 
   // END Dom Ready ---------------------------------------------------------------------------
 });

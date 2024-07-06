@@ -11,5 +11,5 @@ Route::controller(MasseurController::class)->group(function() {
     Route::get('/', 'indexListing');
     Route::get('/masseurs/fetch/{id}', 'getMasseurDetails');
     Route::post('/masseurs/store', 'storeMasseurDetails')->name('masseur.store');
-    Route::get('/masseurs/sort/{sortBy?}', 'sortMasseurs');
+    Route::get('/masseurs/sort', 'sortMasseurs')->name('masseurs.sort');
 });

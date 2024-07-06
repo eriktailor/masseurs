@@ -63,30 +63,40 @@ class MasseurController extends Controller
     }
 
     /**
-     * Order masseurs listing with select field
+     * Order masseurs listing with select fields
      */
-    public function sortMasseurs($sortBy = '')
+    public function sortMasseurs(Request $request)
     {
+        $sortBy = $request->input('sortBy', '');
+        $salonId = $request->input('salonId', '');
+
+        $query = Masseur::with(['details', 'salon']);
+
+        if (!empty($salonId)) {
+            $query->whereHas('salon', function ($q) use ($salonId) {
+                $q->where('id', $salonId);
+            });
+        }
+        
         if (empty($sortBy)) {
-            // Default sorting logic, similar to indexListing
-            $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
+            $masseurs = $query->orderBy('deleted')->get();
         } else {
             if ($sortBy == 'full_name') {
-                $masseurs = Masseur::with(['details', 'salon'])
+                $masseurs = $query
                     ->orderByRaw("CASE WHEN full_name IS NULL THEN 1 ELSE 0 END, full_name ASC")
                     ->get();
             } else {
-                $masseurs = Masseur::with(['details', 'salon'])->orderBy($sortBy)->get();
+                $masseurs = $query->orderBy($sortBy)->get();
             }
         }
-
+    
         $salons = Salon::all();
         
         $data = [
             'masseurs' => $masseurs,
             'salons' => $salons
         ];
-
+    
         return view('list', $data);
     }
 }
