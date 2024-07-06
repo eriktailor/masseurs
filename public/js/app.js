@@ -7,7 +7,172 @@
   \*****************************/
 /***/ (() => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/eriktailor/Sites/masseurs/resources/js/app.js: Unexpected token (86:1)\n\n\u001b[0m \u001b[90m 84 |\u001b[39m         }\n \u001b[90m 85 |\u001b[39m     })\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 86 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 87 |\u001b[39m\n \u001b[90m 88 |\u001b[39m \u001b[90m/**\u001b[39m\n \u001b[90m 89 |\u001b[39m \u001b[90m * Submit the store masseur form\u001b[39m\u001b[0m\n    at constructor (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:351:19)\n    at Parser.raise (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:3233:19)\n    at Parser.unexpected (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:3253:16)\n    at Parser.parseExprAtom (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10952:16)\n    at Parser.parseExprSubscripts (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10568:23)\n    at Parser.parseUpdate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10551:21)\n    at Parser.parseMaybeUnary (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10529:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10383:61)\n    at Parser.parseExprOps (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10388:23)\n    at Parser.parseMaybeConditional (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10365:23)\n    at Parser.parseMaybeAssign (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10326:21)\n    at Parser.parseExpressionBase (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10280:23)\n    at /Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10276:39\n    at Parser.allowInAnd (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11915:16)\n    at Parser.parseExpression (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10276:17)\n    at Parser.parseStatementContent (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12356:23)\n    at Parser.parseStatementLike (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12223:17)\n    at Parser.parseStatementListItem (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12203:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12780:61)\n    at Parser.parseBlockBody (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12773:10)\n    at Parser.parseBlock (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12761:10)\n    at Parser.parseFunctionBody (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11600:24)\n    at Parser.parseFunctionBodyAndFinish (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11586:10)\n    at /Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12903:12\n    at Parser.withSmartMixTopicForbiddingContext (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11897:14)\n    at Parser.parseFunction (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:12902:10)\n    at Parser.parseFunctionOrFunctionSent (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11067:17)\n    at Parser.parseExprAtom (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10856:21)\n    at Parser.parseExprSubscripts (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10568:23)\n    at Parser.parseUpdate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10551:21)\n    at Parser.parseMaybeUnary (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10529:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10383:61)\n    at Parser.parseExprOps (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10388:23)\n    at Parser.parseMaybeConditional (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10365:23)\n    at Parser.parseMaybeAssign (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10326:21)\n    at /Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10296:39\n    at Parser.allowInAnd (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11920:12)\n    at Parser.parseMaybeAssignAllowIn (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10296:17)\n    at Parser.parseExprListItem (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:11680:18)\n    at Parser.parseCallExpressionArguments (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10754:22)\n    at Parser.parseCoverCallAndAsyncArrowHead (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10671:29)\n    at Parser.parseSubscript (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10608:19)\n    at Parser.parseSubscripts (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10581:19)\n    at Parser.parseExprSubscripts (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10572:17)\n    at Parser.parseUpdate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10551:21)\n    at Parser.parseMaybeUnary (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10529:23)\n    at Parser.parseMaybeUnaryOrPrivate (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10383:61)\n    at Parser.parseExprOps (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10388:23)\n    at Parser.parseMaybeConditional (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10365:23)\n    at Parser.parseMaybeAssign (/Users/eriktailor/Sites/masseurs/node_modules/@babel/parser/lib/index.js:10326:21)");
+$(document).ready(function () {
+  // START Dom Ready -------------------------------------------------------------------------
+
+  /**
+   * Initialize ajax
+   */
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+
+  /**
+   * Initialize tooltips
+   */
+  $('[data-bs-toggle="tooltip"]').tooltip({
+    trigger: 'hover',
+    html: true
+  });
+
+  /**
+   * Run select input placeholder color change function
+   */
+  selectPlaceholderColor();
+  $(document).on('change', '.form-select', selectPlaceholderColor);
+
+  /**
+   * Run submit the masseur form from modal
+   */
+  $('#storeMasseurButton').on('click', submitMasseurForm);
+
+  /**
+   * Run masonry on masseurs listing on page load
+   */
+  $('#masseursList').masonry({
+    'percentPosition': true
+  });
+
+  /**
+   * Run masseurs sort & filter function if filters change
+   */
+  $('#sortBySelect').on('change', sortMasseurs);
+  $('#salonSelect').on('change', sortMasseurs);
+  $('#statusSelect').on('change', sortMasseurs);
+  $('#searchField').on('keyup', sortMasseurs);
+
+  /**
+   * Run edit or just view masseur modal
+   */
+  $('.edit-masseur').on('click', openMasseurModal);
+
+  /**
+   * Run date input formatter when user types in
+   */
+  $('.date-input').on('input', formatDateField);
+
+  // END Dom Ready ---------------------------------------------------------------------------
+});
+
+// FUNCTIONS -------------------------------------------------------------------------------
+
+/**
+ * Function to change select inputs placeholder color
+ */
+function selectPlaceholderColor() {
+  $('.form-select').each(function () {
+    var select_val = $(this).val();
+    if (select_val != '') {
+      $(this).removeClass('select-placeholder');
+    } else {
+      $(this).addClass('select-placeholder');
+    }
+  });
+}
+
+/**
+ * Function to edit or view a masseur in modal
+ */
+function openMasseurModal() {
+  var masseurId = $(this).data('masseur-id');
+  $('#masseurForm').trigger('reset');
+  $('#masseurProfileImage').attr('src', '/img/noimage.png');
+  $.ajax({
+    url: '/masseurs/fetch/' + masseurId,
+    method: 'GET',
+    success: function success(res) {
+      console.log(res);
+      if (res.details) {
+        if (res.details.avatar !== null) {
+          $('#masseurProfileImage').attr('src', res.details.avatar);
+          $('#masseurProfileImageHidden').val(res.details.avatar);
+        } else {
+          $('#masseurProfileImage').attr('src', '/img/noimage.png');
+        }
+        $('#masseurShortName').text(res.name);
+        $('#masseurName').val(res.name);
+        $('#masseurFullName').val(res.full_name);
+        $('#masseurMotherName').val(res.details.mother_name);
+        $('#masseurBirthDate').val(res.details.birth_date);
+        $('#masseurBirthPlace').val(res.details.birth_place);
+        $('#masseurVisaNumber').val(res.details.visa_number);
+        $('#masseurVisaExpire').val(res.details.visa_expire);
+        $('#masseurPassportNumber').val(res.details.passport_number);
+        $('#masseurPassportExpire').val(res.details.passport_expire);
+        $('#masseurIntroduction').val(res.introduction);
+        $('#masseurOtherNotes').val(res.details.notes);
+      } else {
+        console.error('Error: res.details is null or undefined');
+      }
+    },
+    error: function error(jqXHR, textStatus, errorThrown) {
+      console.error('AJAX call failed: ', textStatus, errorThrown);
+    }
+  });
+}
+
+/**
+ * Function to store masseur date from form in modal
+ */
+function submitMasseurForm(e) {
+  e.preventDefault();
+  $('#masseurForm').submit();
+}
+
+/**
+ * Function to sort & filter masseurs listing dynamically
+ */
+function sortMasseurs() {
+  var sortBy = $('#sortBySelect').val();
+  var salonId = $('#salonSelect').val();
+  var status = $('#statusSelect').val();
+  var searchQuery = $('#searchField').val();
+  $.ajax({
+    url: '/masseurs/sort',
+    type: 'GET',
+    data: {
+      sortBy: sortBy,
+      salonId: salonId,
+      status: status,
+      searchQuery: searchQuery
+    },
+    success: function success(data) {
+      $('#masseursList').html(data);
+      $('#masseursList').masonry('reloadItems').masonry({
+        'percentPosition': true
+      });
+    }
+  });
+}
+
+/**
+ * Function to format date fields dynamically
+ */
+function formatDateField(e) {
+  // Remove all non-digit characters
+  var value = e.target.value.replace(/\D/g, '');
+  var formattedValue = '';
+  if (value.length <= 4) {
+    formattedValue = value;
+  } else if (value.length <= 6) {
+    formattedValue = value.slice(0, 4) + '-' + value.slice(4);
+  } else {
+    formattedValue = value.slice(0, 4) + '-' + value.slice(4, 6) + '-' + value.slice(6);
+  }
+  e.target.value = formattedValue;
+}
 
 /***/ }),
 

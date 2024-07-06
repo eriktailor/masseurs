@@ -20,9 +20,49 @@ $('[data-bs-toggle="tooltip"]').tooltip({
 });
 
 /**
- * Select input placeholder color fix
+ * Run select input placeholder color change function
  */
-function select_placeholder() {
+selectPlaceholderColor();
+$(document).on('change', '.form-select', selectPlaceholderColor);
+
+/**
+ * Run submit the masseur form from modal
+ */
+$('#storeMasseurButton').on('click', submitMasseurForm); 
+
+/**
+ * Run masonry on masseurs listing on page load
+ */
+$('#masseursList').masonry({ 'percentPosition': true });
+
+/**
+ * Run masseurs sort & filter function if filters change
+ */
+$('#sortBySelect').on('change', sortMasseurs);
+$('#salonSelect').on('change', sortMasseurs);
+$('#statusSelect').on('change', sortMasseurs);
+$('#searchField').on('keyup', sortMasseurs);
+
+/**
+ * Run edit or just view masseur modal
+ */
+$('.edit-masseur').on('click', openMasseurModal);
+
+/**
+ * Run date input formatter when user types in
+ */
+$('.date-input').on('input', formatDateField);
+
+// END Dom Ready ---------------------------------------------------------------------------
+
+});
+
+// FUNCTIONS -------------------------------------------------------------------------------
+
+/**
+ * Function to change select inputs placeholder color
+ */
+function selectPlaceholderColor() {
 	$('.form-select').each( function(){  
 		var select_val = $(this).val();  
 		if( select_val != '' ) {  
@@ -33,15 +73,11 @@ function select_placeholder() {
 
 	});
 }
-$(document).on('change', '.form-select', function() {
-	select_placeholder();
-});
-select_placeholder();
 
 /**
  * Function to edit or view a masseur in modal
  */
- function openMasseurModal() {
+function openMasseurModal() {
     var masseurId = $(this).data('masseur-id');
 
     $('#masseurForm').trigger('reset');
@@ -83,18 +119,18 @@ select_placeholder();
             console.error('AJAX call failed: ', textStatus, errorThrown);
         }
     });
-});
+}
 
 /**
- * Submit the store masseur form
+ * Function to store masseur date from form in modal
  */
-$('#storeMasseurButton').on('click', function(event) {
-    event.preventDefault();
+function submitMasseurForm(e) {
+    e.preventDefault();
     $('#masseurForm').submit();
-});
+}
 
 /**
- * Function to sort masseurs listing dynamically
+ * Function to sort & filter masseurs listing dynamically
  */
 function sortMasseurs() {
     var sortBy = $('#sortBySelect').val();
@@ -122,7 +158,9 @@ function sortMasseurs() {
  * Function to format date fields dynamically
  */
 function formatDateField(e) {
-    var value = e.target.value.replace(/\D/g, ''); // Remove all non-digit characters
+
+    // Remove all non-digit characters
+    var value = e.target.value.replace(/\D/g, '');
     var formattedValue = '';
 
     if (value.length <= 4) {
@@ -135,29 +173,3 @@ function formatDateField(e) {
 
     e.target.value = formattedValue;
 }
-
-/**
- * Run masonry on masseurs listing on page load
- */
-$('#masseursList').masonry({ 'percentPosition': true });
-
-/**
- * Run masseurs sort function if filters change
- */
-$('#sortBySelect').on('change', sortMasseurs);
-$('#salonSelect').on('change', sortMasseurs);
-$('#statusSelect').on('change', sortMasseurs);
-$('#searchField').on('keyup', sortMasseurs);
-
-/**
- * Run edit or just view masseur modal
- */
-$('.edit-masseur').on('click', openMasseurModal);
-/**
- * Run date input formatter when user types in
- */
-$('.date-input').on('input', formatDateField);
-
-// END Dom Ready ---------------------------------------------------------------------------
-
-});
