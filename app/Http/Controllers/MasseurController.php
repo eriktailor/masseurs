@@ -70,6 +70,7 @@ class MasseurController extends Controller
         $sortBy = $request->input('sortBy', '');
         $salonId = $request->input('salonId', '');
         $status = $request->input('status', '');
+        $searchQuery = $request->input('searchQuery', '');
 
         $query = Masseur::with(['details', 'salon']);
 
@@ -85,6 +86,13 @@ class MasseurController extends Controller
             } elseif ($status == 'inactive') {
                 $query->where('deleted', 1);
             }
+        }
+
+        if (!empty($searchQuery)) {
+            $query->where(function ($q) use ($searchQuery) {
+                $q->where('full_name', 'like', '%' . $searchQuery . '%')
+                ->orWhere('name', 'like', '%' . $searchQuery . '%');
+            });
         }
 
         if (empty($sortBy)) {
@@ -108,6 +116,7 @@ class MasseurController extends Controller
 
         return view('list', $data);
     }
+
 
 
 
