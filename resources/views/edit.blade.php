@@ -19,8 +19,11 @@
                             <label class="form-label" for="masseurProfileImage">Profilkép</label>
                             <p class="small opacity-75 text-muted mb-0 me-4">Az ide feltöltött profilkép fog megjelenni a foglalási rendszerben a lány neve mellett. Kattints a képre egy új kép feltöltéshez!</p>
                         </div>
-                        <div>
-                            <img class="profile-image-preview rounded-circle border overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">
+                        <div class="rounded-circle position-relative overflow-hidden d-flex align-items-center justify-content-center flex-none">
+                            <img class="object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100" alt="Profile Image">
+                            <div class="position-absolute bg-primary bg-opacity-75 w-100 h-100 d-flex align-items-center justify-content-center hover-opacity-100" type="button" id="masseurProfileImageHover">
+                                <x-icon class="text-white" name="link" width="30" height="30"/>
+                            </div>
                             <input class="d-none" id="masseurProfileImageHidden" name="avatar" type="file" accept="image/*">
                         </div>
                     </div>

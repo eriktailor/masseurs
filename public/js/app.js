@@ -68,9 +68,13 @@ $(document).ready(function () {
    */
   $('.date-input').on('input', formatDateField);
 
-  // When the thumbnail image is clicked
-  $('#masseurProfileImage').on('click', function () {
-    $('#masseurProfileImageHidden').click();
+  /**
+   * Run profile image uploader feature on avatar click
+   */
+  // When the hover div is clicked
+  $('#masseurProfileImageHover').on('click', function (event) {
+    event.stopPropagation(); // Prevent any event propagation issues
+    $('#masseurProfileImageHidden').trigger('click');
   });
 
   // When a file is selected
@@ -207,6 +211,11 @@ function formatDateField(e) {
   }
   e.target.value = formattedValue;
 }
+
+/**
+ * Function to open file browser at avatar click
+ */
+function masseurAvatarUpload() {}
 
 /***/ }),
 
