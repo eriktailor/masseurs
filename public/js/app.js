@@ -28,6 +28,24 @@ $(document).ready(function () {
   });
 
   /**
+   * Select input placeholder color fix
+   */
+  function select_placeholder() {
+    $('.form-select').each(function () {
+      var select_val = $(this).val();
+      if (select_val != '') {
+        $(this).removeClass('select-placeholder');
+      } else {
+        $(this).addClass('select-placeholder');
+      }
+    });
+  }
+  $(document).on('change', '.form-select', function () {
+    select_placeholder();
+  });
+  select_placeholder();
+
+  /**
    * Edit or view a masseur
    */
   $('.edit-masseur').on('click', function () {

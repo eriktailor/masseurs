@@ -1,4 +1,13 @@
 @charset "UTF-8";
+input::-moz-placeholder {
+  color: #ADAAA9 !important;
+  font-weight: 400 !important;
+}
+input::placeholder, .select-placeholder {
+  color: #ADAAA9 !important;
+  font-weight: 400 !important;
+}
+
 .ui-datepicker {
   border-radius: 14px;
   border: 0 !important;

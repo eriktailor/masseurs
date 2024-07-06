@@ -11,6 +11,7 @@ $white:     #FFFFFF;
 
 // Body
 $body-bg: #FEECDA;
+$placeholder: #ADAAA9;
 
 // Typography
 $font-family-base: 'Roboto', sans-serif;
@@ -40,6 +41,7 @@ $input-padding-x: 16px;
 $input-font-weight: 500;
 
 // Custom files
+@import 'helpers';
 @import 'datepicker';
 
 // Import Bootstrap

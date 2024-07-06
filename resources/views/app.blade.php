@@ -21,10 +21,35 @@
 
 <body class="bg-light">
 
-    <nav class="navbar bg-dark">
+    <nav class="navbar bg-dark py-3">
         <div class="container-fluid">
             <img src="{{ asset('img/logos/logo_full.svg') }}" alt="Saeng Tian" width="144" height="32">
             <button class="btn btn-warning">Új masszőr</button>
+        </div>
+    </nav>
+
+    <nav class="navbar bg-white sticky-top py-3">
+        <div class="container">
+            <div class="d-flex justify-content-start gap-3 w-100">
+                <div class="flex-grow-1">
+                    <input class="form-control" id="searchField" type="text" placeholder="Keresés...">
+                </div>
+                <div class="col-12 col-lg-2">
+                    <select class="form-select" id="salonSelect">
+                        <option value="">Szalon</option>
+                        @foreach($salons as $salon)
+                            <option value="{{ $salon->id }}">{{ $salon->short_name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-12 col-lg-2">
+                    <select class="form-select" id="orderSelect">
+                        <option value="">Rendezés</option>
+                        <option value="short_name">Becenév szerint</option>
+                        <option value="short_name">Teljes név szerint</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </nav>
 
