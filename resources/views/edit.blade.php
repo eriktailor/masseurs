@@ -2,9 +2,9 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header d-flex align-items-center justify-content-between">
-                <h1 class="modal-title fs-5" id="masseurModalLabel">
+                <h4 class="modal-title fs-4" id="masseurModalLabel">
                     <span id="masseurShortName">Masszőr</span> szerkesztése
-                </h1>
+                </h4>
                 <button class="btn p-0" type="button" data-bs-dismiss="modal" aria-label="Bezár">
                     <x-icon name="x" width="24" height="24" class="opacity-50" strokeWidth="1.5"/>
                 </button>
@@ -20,8 +20,8 @@
                             <p class="small opacity-75 text-muted mb-0 me-4">Az ide feltöltött profilkép fog megjelenni a foglalási rendszerben a lány neve mellett. Kattints a képre egy új kép feltöltéshez!</p>
                         </div>
                         <div>
-                            <img class="rounded-circle overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">
-                            <input class="form-control" id="masseurProfileImageHidden" name="avatar" type="hidden">
+                            <img class="profile-image-preview rounded-circle border overflow-hidden object-fit-cover" id="masseurProfileImage" src="{{ asset('img/noimage.png') }}" width="100" height="100">
+                            <input class="d-none" id="masseurProfileImageHidden" name="avatar" type="file" accept="image/*">
                         </div>
                     </div>
                     <div class="mb-3">

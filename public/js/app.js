@@ -28,15 +28,15 @@ $(document).ready(function () {
   });
 
   /**
-   * Run hide loading div in modal after content loaded
-   */
-  $('#masseurModal').on('show.bs.modal', hideLoadingDiv);
-
-  /**
    * Run select input placeholder color change function
    */
   selectPlaceholderColor();
   $(document).on('change', '.form-select', selectPlaceholderColor);
+
+  /**
+   * Run hide loading div in modal after content loaded
+   */
+  $('#masseurModal').on('show.bs.modal', hideLoadingDiv);
 
   /**
    * Run submit the masseur form from modal
@@ -67,6 +67,23 @@ $(document).ready(function () {
    * Run date input formatter when user types in
    */
   $('.date-input').on('input', formatDateField);
+
+  // When the thumbnail image is clicked
+  $('#masseurProfileImage').on('click', function () {
+    $('#masseurProfileImageHidden').click();
+  });
+
+  // When a file is selected
+  $('#masseurProfileImageHidden').on('change', function (event) {
+    var input = event.target;
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#masseurProfileImage').attr('src', e.target.result);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  });
 
   // END Dom Ready ---------------------------------------------------------------------------
 });
@@ -115,7 +132,6 @@ function openMasseurModal() {
       if (res.details) {
         if (res.details.avatar !== null) {
           $('#masseurProfileImage').attr('src', res.details.avatar);
-          $('#masseurProfileImageHidden').val(res.details.avatar);
         } else {
           $('#masseurProfileImage').attr('src', '/img/noimage.png');
         }
