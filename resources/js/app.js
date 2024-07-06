@@ -96,13 +96,17 @@ $('#masseursList').masonry({ 'percentPosition': true });
 function fetchMasseurs() {
     var sortBy = $('#sortBySelect').val();
     var salonId = $('#salonSelect').val();
-    
+    var status = $('#statusSelect').val();
+    var searchQuery = $('#searchField').val();
+
     $.ajax({
         url: '/masseurs/sort',
         type: 'GET',
         data: {
             sortBy: sortBy,
-            salonId: salonId
+            salonId: salonId,
+            status: status,
+            searchQuery: searchQuery
         },
         success: function(data) {
             $('#masseursList').html(data);
@@ -111,11 +115,14 @@ function fetchMasseurs() {
     });
 }
 
+
 /**
  * Run masseurs sort function if select input changes
  */
 $('#sortBySelect').on('change', fetchMasseurs);
 $('#salonSelect').on('change', fetchMasseurs);
+$('#statusSelect').on('change', fetchMasseurs);
+$('#searchField').on('keyup', fetchMasseurs);
 
 
 // END Dom Ready ---------------------------------------------------------------------------

@@ -69,6 +69,7 @@ class MasseurController extends Controller
     {
         $sortBy = $request->input('sortBy', '');
         $salonId = $request->input('salonId', '');
+        $status = $request->input('status', '');
 
         $query = Masseur::with(['details', 'salon']);
 
@@ -77,7 +78,15 @@ class MasseurController extends Controller
                 $q->where('id', $salonId);
             });
         }
-        
+
+        if (!empty($status)) {
+            if ($status == 'active') {
+                $query->where('deleted', 0);
+            } elseif ($status == 'inactive') {
+                $query->where('deleted', 1);
+            }
+        }
+
         if (empty($sortBy)) {
             $masseurs = $query->orderBy('deleted')->get();
         } else {
@@ -89,14 +98,17 @@ class MasseurController extends Controller
                 $masseurs = $query->orderBy($sortBy)->get();
             }
         }
-    
+
         $salons = Salon::all();
         
         $data = [
             'masseurs' => $masseurs,
             'salons' => $salons
         ];
-    
+
         return view('list', $data);
     }
+
+
+
 }

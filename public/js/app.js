@@ -110,12 +110,16 @@ $(document).ready(function () {
   function fetchMasseurs() {
     var sortBy = $('#sortBySelect').val();
     var salonId = $('#salonSelect').val();
+    var status = $('#statusSelect').val();
+    var searchQuery = $('#searchField').val();
     $.ajax({
       url: '/masseurs/sort',
       type: 'GET',
       data: {
         sortBy: sortBy,
-        salonId: salonId
+        salonId: salonId,
+        status: status,
+        searchQuery: searchQuery
       },
       success: function success(data) {
         $('#masseursList').html(data);
@@ -131,6 +135,8 @@ $(document).ready(function () {
    */
   $('#sortBySelect').on('change', fetchMasseurs);
   $('#salonSelect').on('change', fetchMasseurs);
+  $('#statusSelect').on('change', fetchMasseurs);
+  $('#searchField').on('keyup', fetchMasseurs);
 
   // END Dom Ready ---------------------------------------------------------------------------
 });

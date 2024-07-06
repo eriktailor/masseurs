@@ -43,6 +43,13 @@
                     </select>
                 </div>
                 <div class="col-12 col-lg-2">
+                    <select class="form-select" id="statusSelect">
+                        <option value="">Státusz</option>
+                        <option value="active">Aktív</option>
+                        <option value="inactive">Inaktív</option>
+                    </select>
+                </div>
+                <div class="col-12 col-lg-2">
                     <select class="form-select" id="sortBySelect">
                         <option value="">Rendezés</option>
                         <option value="name">Becenév szerint</option>
