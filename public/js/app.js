@@ -57,6 +57,13 @@ $(document).ready(function () {
         console.log(res);
         $('#masseurShortName').text(res.name);
         $('#masseurName').val(res.name);
+        $('#masseurFullName').val(res.full_name);
+        if (res.details.avatar !== null) {
+          $('#masseurProfileImage').attr('src', res.details.avatar);
+          $('#masseurProfileImageHidden').val(res.details.avatar);
+        } else {
+          $('#masseurProfileImage').attr('src', '/img/noimage.png');
+        }
       },
       error: function error(jqXHR, textStatus, errorThrown) {
         console.error('AJAX call failed: ', textStatus, errorThrown);

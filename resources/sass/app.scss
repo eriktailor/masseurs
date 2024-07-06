@@ -31,14 +31,15 @@ $modal-header-border-width: 0;
 $modal-content-border-radius: 20px;
 
 // Labels
-$form-label-color: #545454;
+$form-label-color: $dark;
 $form-label-margin-bottom: 5px;
+$form-label-font-weight: 500;
 
 // Inputs
 $input-bg: #fff9f3;
 $input-padding-y: 10px;
 $input-padding-x: 16px;
-$input-font-weight: 500;
+$input-font-weight: 400;
 
 // Custom files
 @import 'helpers';

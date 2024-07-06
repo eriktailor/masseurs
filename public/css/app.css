@@ -2114,7 +2114,8 @@ progress {
 }
 .form-label {
   margin-bottom: 5px;
-  color: #545454;
+  font-weight: 500;
+  color: #1d0403;
 }
 
 .col-form-label {
@@ -2122,8 +2123,9 @@ progress {
   padding-bottom: calc(10px + var(--bs-border-width));
   margin-bottom: 0;
   font-size: inherit;
+  font-weight: 500;
   line-height: 1.5;
-  color: #545454;
+  color: #1d0403;
 }
 
 .col-form-label-lg {
@@ -2149,7 +2151,7 @@ progress {
   width: 100%;
   padding: 10px 16px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
   -webkit-appearance: none;
@@ -2305,7 +2307,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 10px 48px 10px 16px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
   -webkit-appearance: none;
@@ -2727,7 +2729,7 @@ textarea.form-control-lg {
   align-items: center;
   padding: 10px 16px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--bs-body-color);
   text-align: center;
