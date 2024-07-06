@@ -54,6 +54,8 @@
                         <option value="">Rendezés</option>
                         <option value="name">Becenév szerint</option>
                         <option value="full_name">Teljes név szerint</option>
+                        <option value="visa_expire">Visa lejárata szerint</option>
+                        <option value="passport_expire">Útlevél lejárata szerint</option>
                     </select>
                 </div>
             </div>

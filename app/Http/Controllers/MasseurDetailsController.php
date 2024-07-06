@@ -102,13 +102,18 @@ class MasseurDetailsController extends Controller
                 $masseurs = $query
                     ->orderByRaw("CASE WHEN full_name IS NULL THEN 1 ELSE 0 END, full_name ASC")
                     ->get();
+            } elseif ($sortBy == 'visa_expire' || $sortBy == 'passport_expire') {
+                $masseurs = $query
+                    ->leftJoin('masseur_details', 'masseurs.id', '=', 'masseur_details.masseur_id')
+                    ->orderByRaw("CASE WHEN masseur_details.$sortBy IS NULL THEN 1 ELSE 0 END, masseur_details.$sortBy ASC")
+                    ->get(['masseurs.*']); // Add select to avoid column conflict
             } else {
                 $masseurs = $query->orderBy($sortBy)->get();
             }
         }
 
         $salons = Salon::all();
-        
+
         $data = [
             'masseurs' => $masseurs,
             'salons' => $salons
@@ -116,6 +121,8 @@ class MasseurDetailsController extends Controller
 
         return view('list', $data);
     }
+
+
 
 
 

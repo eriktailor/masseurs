@@ -27,3 +27,4 @@ npm run prod
 - Add a link to each masseur in the booking site, what redirects to the masseurs site, with correct search params
 - Make it get masseur profile images from masseur_details table's corresponding column
 - Make it rewrite the masseur table's base details on save
+- Double check visa & passport expire indicators and emails
