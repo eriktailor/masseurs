@@ -3,21 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MasseurDetailsController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-
+use App\Http\Controllers\LoginController;
 
 // Login
 Route::controller(LoginController::class)->group(function() {
     Route::get('/login', 'showLoginForm')->name('login');
     Route::post('/login', 'login');
     Route::post('/logout', 'logout')->name('logout');
-});
-
-// Register
-Route::controller(RegisterController::class)->group(function() {
-    Route::get('/register', 'showRegistrationForm')->name('register');
-    Route::post('/register', 'register');
 });
 
 // Masseurs
