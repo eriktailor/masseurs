@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\MasseurDetailsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
+
 
 // Login
 Route::controller(LoginController::class)->group(function() {
@@ -24,3 +26,8 @@ Route::controller(MasseurDetailsController::class)->group(function() {
 Route::middleware('auth')->group(function() {
     Route::get('/', [MasseurDetailsController::class, 'indexListing'])->name('homepage');
 });
+
+
+
+// Mail test
+Route::get('/send-expire-notifications', [MailController::class, 'sendExpireNotifications']);
