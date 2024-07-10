@@ -19,7 +19,7 @@
                 @endif
                 
                 @if($imageExtension)
-                    <img class="object-fit-cover rounded-circle mx-auto mb-4" src="{{ asset('profile_images/' . $masseur->id . '.' . $imageExtension) }}" alt="{{ $masseur->name }}" width="100" height="100">
+                    <img class="object-fit-cover rounded-circle mx-auto mb-4 {{ $masseur->deleted ? 'grayscale opacity-75' : '' }}" src="{{ asset('profile_images/' . $masseur->id . '.' . $imageExtension) }}" alt="{{ $masseur->name }}" width="100" height="100">
                 @endif
 
                 <h3 class="h4">{{ $masseur->name }}</h3>
