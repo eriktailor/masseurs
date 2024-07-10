@@ -15,11 +15,24 @@ class MailController extends Controller
     public function sendExpireNotifications()
     {
         $twoMonthsLater = now()->addMonths(2)->toDateString();
+        $oneYearLater = now()->addMonths(12)->toDateString();
 
-        $masseurs = MasseurDetails::with('masseur')
-            ->whereDate('visa_expire', $twoMonthsLater)
-            ->get();
-    
+        $visas = MasseurDetails::with('masseur')
+        ->whereDate('visa_expire', $twoMonthsLater)
+        ->get()
+        ->each(function ($item) {
+            $item->expiration_type = 'visa';
+        });
+
+        $passports = MasseurDetails::with('masseur')
+            ->whereDate('passport_expire', $oneYearLater)
+            ->get()
+            ->each(function ($item) {
+                $item->expiration_type = 'passport';
+            });
+
+        $masseurs = $visas->merge($passports);
+
         foreach ($masseurs as $masseur) {
             Mail::to('your-email@example.com')->send(new ExpireNotification($masseur));
         }

@@ -28,3 +28,4 @@ npm run prod
 - Make it get masseur profile images from masseur_details table's corresponding column
 - Make it rewrite the masseur table's base details on save
 - Double check visa & passport expire indicators and emails
+- Set up a cron job for sending expire notification emails
