@@ -1,6 +1,12 @@
 // Flex none
 .flex-none {
-    flex: none;
+    flex: none !important;
+}
+
+// Outline none
+.outline-none {
+    outline: none !important;
+    border: 0 !important;
 }
 
 // Change opacity to 100% on hover

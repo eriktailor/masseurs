@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use App\Models\Salon;
 use App\Models\Masseur;
 use App\Models\MasseurDetails;
@@ -16,10 +17,12 @@ class MasseurDetailsController extends Controller
     {
         $masseurs = Masseur::with(['details', 'salon'])->orderBy('deleted')->get();
         $salons = Salon::all();
+        $users = DB::table('users')->where('role', 'admin')->get();
         
         $data = [
             'masseurs' => $masseurs,
-            'salons' => $salons
+            'salons' => $salons,
+            'users' => $users
         ];
 
         return view('index', $data);

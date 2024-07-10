@@ -1,6 +1,11 @@
 @charset "UTF-8";
 .flex-none {
-  flex: none;
+  flex: none !important;
+}
+
+.outline-none {
+  outline: none !important;
+  border: 0 !important;
 }
 
 .hover-opacity-100 {
@@ -3500,7 +3505,7 @@ textarea.form-control-lg {
   --bs-dropdown-spacer: 0.125rem;
   --bs-dropdown-font-size: 1rem;
   --bs-dropdown-color: var(--bs-body-color);
-  --bs-dropdown-bg: var(--bs-body-bg);
+  --bs-dropdown-bg: #FFFFFF;
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
   --bs-dropdown-border-radius: var(--bs-border-radius);
   --bs-dropdown-border-width: var(--bs-border-width);

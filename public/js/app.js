@@ -28,6 +28,14 @@ $(document).ready(function () {
   });
 
   /**
+   * Logout button clicked
+   */
+  $('#logoutButton').on('click', function (event) {
+    event.preventDefault();
+    $('#logout-form').submit();
+  });
+
+  /**
    * Run select input placeholder color change function
    */
   selectPlaceholderColor();

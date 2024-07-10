@@ -44,6 +44,9 @@ $input-padding-y: 10px;
 $input-padding-x: 16px;
 $input-font-weight: 400;
 
+// Dropdowns
+$dropdown-bg: map-get($theme-colors, 'white');
+
 // Tooltips
 $tooltip-color: map-get($theme-colors, 'white');
 
