@@ -25,7 +25,8 @@ npm run prod
 - Make it get images from the booking project's images folder?
 - Add two new salons to booking site and a checkbox to show the salon in calendar or not
 - Add a link to each masseur in the booking site, what redirects to the masseurs site, with correct search params
-- Make it get masseur profile images from masseur_details table's corresponding column
+- Make it get masseur profile images from masseur_details table's corresponding column instead of from files
 - Make it rewrite the masseur table's base details on save
 - Double check visa & passport expire indicators and emails
 - Set up a cron job for sending expire notification emails
+- Add relation functions from Masseur model to Booking project's Masseur model
