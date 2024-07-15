@@ -9,14 +9,14 @@ class Masseur extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'full_name'];
     
     /**
      * Make relation with MasseurDetails model
      */
     public function details()
     {
-        return $this->hasOne(MasseurDetails::class);
+        return $this->hasOne(MasseurDetails::class)->withDefault();
     }
 
     /**

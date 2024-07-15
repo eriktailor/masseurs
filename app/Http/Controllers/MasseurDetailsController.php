@@ -45,13 +45,18 @@ class MasseurDetailsController extends Controller
     {
         // Check if the masseur exists
         $masseur = Masseur::where('name', $request->name)->first();
-
+    
         if ($masseur) {
             // If masseur exists, update the details
+            Masseur::updateOrCreate(
+                ['id' => $masseur->id],
+                $request->except('name') // Exclude 'name' from the update
+            );
             $masseurDetails = MasseurDetails::updateOrCreate(
                 ['masseur_id' => $masseur->id],
                 $request->except('name') // Exclude 'name' from the update
             );
+            \Log::info('Updating details', ['masseur_id' => $masseur->id, 'details' => $masseurDetails]);
         } else {
             // If masseur does not exist, create a new masseur and details
             $masseur = Masseur::create(['name' => $request->name]);
@@ -59,11 +64,13 @@ class MasseurDetailsController extends Controller
                 ['masseur_id' => $masseur->id],
                 $request->except('name') // Exclude 'name' from the creation
             ));
+            \Log::info('Creating masseur and details', ['masseur' => $masseur, 'details' => $masseurDetails]);
         }
-
+    
         // Redirect or respond as needed
         return redirect()->back()->with('success', 'Masszőr sikeresen módosítva!');
     }
+    
 
     /**
      * Order masseurs listing with select fields
